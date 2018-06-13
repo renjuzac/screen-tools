@@ -1,7 +1,7 @@
 import requests
 import json
 
-import config
+from config import username,password
 
 
 ticker = "NTNX"
