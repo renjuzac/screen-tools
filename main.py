@@ -1,14 +1,11 @@
-from stocks import stocks
+from stocks import scan
+from stocks import fetch
 
+stocks = scan.scan_on_growth_volume_price()
 
+high_growth = fetch.get_stocks_with_revenue_growth_over("0.3")
+volume_price = fetch.get_stock_price_and_vol([])
 
-
-high_growth  = stocks.get_stocks_with_revenue_growth_over("0.3")
-volume_price = stocks.get_stock_price_and_vol([])
-
-uniques = set(high_growth.keys()) & set(volume_price.keys())
-
-for ticker in uniques:
+for ticker in stocks:
     print ("{} {}  {}".format(ticker,volume_price[ticker],high_growth[ticker]))
 
-print(len(uniques))
