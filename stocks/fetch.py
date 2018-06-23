@@ -1,35 +1,18 @@
 from datetime import timedelta
 
-import requests
+#import requests
 import json
-import requests_cache
 
+from .caching import session
 from config import username,password
 
-expire_after = timedelta(hours=24)
-requests_cache.install_cache('stocks/api_cache', expire_after=expire_after)
-
-
-# Fetch for scans
-
-# Fetch for ticker data
-
-
 ticker = "NTNX"
-#url = "https://api.intrinio.com/companies?ticker={}".format(ticker)
-#url2 = "https://api.intrinio.com/data_point?identifier={}&item=revenuegrowth".format(ticker)
-#url3 = "https://api.intrinio.com/securities/search?conditions=revenuegrowth~gt~0.3"
-#url4 = "https://api.intrinio.com/data_point?identifier={}&item=volume".format(ticker)
-# FULL URL: https://api.intrinio.com/data_point?identifier=GOOGL,AAPL&item=price_date,close_price,percent_change
 
-#response = requests.get(url3, auth=(username, password))
-#print(response.text)
-#print(response.headers)
-#print(response.json())
 
 def get_url(url):
     try:
-        response = requests.get(url, auth=(username, password))
+#        response = requests.get(url, auth=(username, password))
+        response = session.get(url, auth=(username, password))
         results = json.loads(response.text)
         return results
 
