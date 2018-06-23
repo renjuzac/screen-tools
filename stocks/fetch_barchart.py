@@ -5,6 +5,7 @@ import json
 
 from caching import session
 
+
 #from config import barchart_api_key
 
 barchart_api_key = "62ee527bc88e5383f47f67b551d75bda"
@@ -24,7 +25,6 @@ for field in fields:
     fieldnames = fieldnames + "%2C" + field
 
 getquote_url = getquote_url.format(apikey=barchart_api_key,symbolnames=symbolnames,fieldnames=fieldnames)
-#data = requests.get(getquote_url)
 data = session.get(getquote_url)
 jsondata = json.loads(data.text)
 

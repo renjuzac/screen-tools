@@ -3,7 +3,7 @@ from datetime import timedelta
 #import requests
 import json
 
-from .caching import session
+from . import caching
 from config import username,password
 
 ticker = "NTNX"
@@ -12,7 +12,7 @@ ticker = "NTNX"
 def get_url(url):
     try:
 #        response = requests.get(url, auth=(username, password))
-        response = session.get(url, auth=(username, password))
+        response = caching.session.get(url, auth=(username, password))
         results = json.loads(response.text)
         return results
 
