@@ -1,12 +1,18 @@
+from datetime import timedelta
+
 import requests
 import json
 import requests_cache
-from datetime import timedelta
 
 from config import username,password
 
-expire_after = timedelta(hours=1)
+expire_after = timedelta(hours=24)
 requests_cache.install_cache('stocks/api_cache', expire_after=expire_after)
+
+
+# Fetch for scans
+
+# Fetch for ticker data
 
 
 ticker = "NTNX"

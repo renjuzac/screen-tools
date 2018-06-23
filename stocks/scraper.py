@@ -49,15 +49,15 @@ def stocks_52wk_highlow(high=True):
     return results
 
 
+if __name__ == "__main__":
+    tickers = stocks_52wk_highlow()
+    print(tickers['high'])
+    print(tickers['low'])
+
+
 #    Return whole table without split
 #    for atag in table.find_all('a', href=True):
 #    print(atag['href'].split("=")[1])
 
 #    stocks = [atag['href'].split("=")[1] for atag in table.find_all('a', href=True)]
 #    URL: /public/quotes/main.html?symbol=CVIA
-
-
-if __name__ == "__main__":
-    tickers = stocks_52wk_highlow()
-    print(tickers['high'])
-    print(tickers['low'])
